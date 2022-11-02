@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
   @include('admin.head')
+  @yield('css')
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -69,5 +71,7 @@
 </div>
 <!-- ./wrapper -->
 @include('admin.footer')
+@yield('js')
+
 </body>
 </html>

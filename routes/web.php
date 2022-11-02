@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\Admin\ThuonghieuController;
+use App\Http\Controllers\Admin\ProductsController;
+use App\Http\Controllers\Admin\Users\LoginController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,20 +18,41 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// 'App\Http\Controllers\HomeController@index'
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/', 'App\Http\Controllers\HomeController@index');
-Route::get('admin/users/login', 'App\Http\Controllers\Admin\Users\LoginController@index')->name('login');
+// 'App\Http\Controllers\Admin\Users\LoginController@index'
+Route::get('admin/users/login', [LoginController::class, 'index'])->name('login');
 
-Route::post('admin/users/login/store', 'App\Http\Controllers\Admin\Users\LoginController@store');
+// 'App\Http\Controllers\Admin\Users\LoginController@store'
+Route::post('admin/users/login/store', [LoginController::class, 'store']);
 
 Route::middleware(['auth'])->group(function(){
 
     Route::prefix('admin')->group(function(){
-    Route::get('main', 'App\Http\Controllers\Admin\MainController@index')->name('admin');
+      // 'App\Http\Controllers\Admin\MainController@index'
+    Route::get('main', [MainController::class, 'index'])->name('admin');
 
     Route::prefix('thuonghieu')->group(function(){
-          Route::get('add', 'App\Http\Controllers\Admin\ThuonghieuController@create');
-          Route::post('add', 'App\Http\Controllers\Admin\ThuonghieuController@store');
+      
+          Route::get('add', [ThuonghieuController::class, 'create']);
+          
+          Route::post('add', [ThuonghieuController::class, 'store']);
+          
+          Route::get('index', [ThuonghieuController::class, 'index']);
+
+          Route::get('edit/{id}', [ThuonghieuController::class, 'edit']);
+
+          Route::post('update/{id}', [ThuonghieuController::class, 'update']);
+
+          Route::get('delete/{id}', [ThuonghieuController::class, 'delete']);
+
+    });
+    Route::prefix('products')->group(function(){   
+      Route::get('index', [ProductsController::class, 'index']);
+      Route::get('add', [ProductsController::class, 'create']);
+      
+
     });
   });
 

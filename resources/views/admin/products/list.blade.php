@@ -5,14 +5,17 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Tên thương hiệu</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Giá bán</th>
+      <th scope="col">Ảnh</th>
+      <th scope="col">thương hiệu</th>  
       <th scope="col">Action</th>
     
     </tr>
   </thead>
   <tbody>
 
-    @foreach ($thuonghieu as $item)
+    {{-- @foreach ($thuonghieu as $item)
     <tr>
       <th scope="row">{{ $item->id }}</th>
       <td>{{ $item->tenthuonghieu }}</td>
@@ -22,7 +25,7 @@
       </td>
     
     </tr>
-    @endforeach
+    @endforeach --}}
 
  
   </tbody>

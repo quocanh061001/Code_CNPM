@@ -7,17 +7,12 @@ use App\Models\thuonghieu;
 
 class thuonghieuService
 {
-
-  public function getAll(){
-    return thuonghieu::orderbyDesc('id');
-  }
-
    public function create($request)
    {
       try{
          thuonghieu::create([
-          'tenthuonghieu'=>(string) $request->input('thuonghieu')
-
+          'tenthuonghieu'=>(string) $request->input('thuonghieu'),
+          'parent_Id'=>(int) $request->input('parent_Id')
          ]);
          Session::flash('success', 'Tạo thương hiệu thành công');
       }catch(\Exception $err){

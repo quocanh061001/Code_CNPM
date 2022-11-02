@@ -1,5 +1,5 @@
 @extends('admin.main')
 
 @section('content')
-  nội dung
+  Thông tin trang quản trị
 @endsection

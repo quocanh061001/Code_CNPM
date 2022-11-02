@@ -1,12 +1,12 @@
 @extends('admin.main')
 
-
 @section('content')
-<form action="{{ url('admin/thuonghieu/add') }}" method="POST">
+<form action="{{ url('admin/thuonghieu/update/' . $thuonghieu->id) }}" method="POST">
+ 
   <div class="card-body">
     <div class="form-group">
       <label for="thuonghieu">Tên thương hiệu</label>
-      <input type="text" name="thuonghieu" class="form-control" id="thuonghieu" placeholder="Nhập tên thương hiệu">
+      <input type="text" name="thuonghieu" class="form-control" id="thuonghieu" placeholder="Nhập tên thương hiệu" value="{{ $thuonghieu['tenthuonghieu'] }}">
     </div>
 
     <div class="form-group">
@@ -21,7 +21,7 @@
   <!-- /.card-body -->
 
   <div class="card-footer">
-    <button type="submit" class="btn btn-primary">Thêm thương hiệu</button>
+    <button type="submit" class="btn btn-primary">Chỉnh sửa thương hiệu</button>
   </div>
   @csrf
 </form>
