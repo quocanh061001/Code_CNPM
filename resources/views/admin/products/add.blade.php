@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<form action="{{ url('admin/thuonghieu/add') }}" enctype="multipart/form-data" method="POST">
+<form action="{{ url('admin/products/add') }}" enctype="multipart/form-data" method="POST">
   @csrf
   <div class="card-body">
     <div class="form-group">
@@ -29,21 +29,26 @@
 
     <div class="form-group">
       <label for="image_path">Chi tiết ảnh</label>
-      <input type="file" multiple name="image_name[]" class="form-control-file" placeholder="Nhập giá">
+      <input type="file" multiple name="image_detail[]" class="form-control-file" placeholder="Nhập giá">
     </div>
 
     <div class="form-group">
       <label>Thương hiệu</label>
       <br>
-      <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="parent_Id">
+      <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="mathuonghieu">
         <option value="0">chọn thương hiệu cha</option>
         {!! $htmlOption !!}
       </select>
     </div>
 
     <div class="form-group">
-      <label>Nhập nội dung</label>
-      <textarea name="content" class="form-control" rows="3"></textarea>
+      <label>Nhập mô tả</label>
+      <textarea name="contents" class="form-control" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Chi tiết sản phẩm</label>
+      <textarea name="chitietsp" class="form-control" rows="5"></textarea>
     </div>
   </div>
   <!-- /.card-body -->

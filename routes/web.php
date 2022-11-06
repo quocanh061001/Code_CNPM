@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function(){
       
           Route::get('add', [ThuonghieuController::class, 'create']);
           
-          Route::post('add', [ThuonghieuController::class, 'store']);
+          Route::post('add', [ThuonghieuController::class, 'store']);   
           
           Route::get('index', [ThuonghieuController::class, 'index']);
 
@@ -51,8 +51,9 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('products')->group(function(){   
       Route::get('index', [ProductsController::class, 'index']);
       Route::get('add', [ProductsController::class, 'create']);
+      Route::post('add', [ProductsController::class, 'store']);   
       
-
+     
     });
   });
 
